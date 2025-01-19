@@ -2,6 +2,7 @@ package com.francis.weatherap.di.network
 
 import android.content.Context
 import android.util.Log
+import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,6 +26,12 @@ private const val CacheSize = 10L * 1024L * 1024L
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+
+    @Provides
+    @Singleton
+    fun provideConverterFactory(gson: Gson): GsonConverterFactory {
+        return GsonConverterFactory.create(gson)
+    }
 
     @Provides
     @Singleton
