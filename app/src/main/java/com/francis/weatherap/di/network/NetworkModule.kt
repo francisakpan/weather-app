@@ -57,14 +57,6 @@ object NetworkModule {
         .connectTimeout(ConnectTimeoutSeconds, TimeUnit.SECONDS)
         .readTimeout(ReadTimeoutSeconds, TimeUnit.SECONDS)
         .addInterceptor(headerLoggingInterceptor)
-
-    @Provides
-    fun provideRetrofit(client: OkHttpClient): Retrofit =
-        Retrofit.Builder()
-            .baseUrl("")
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
-            .build()
 }
 
 @Qualifier
