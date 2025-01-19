@@ -1,4 +1,4 @@
-package com.francis.weatherap.presentation.ui.favorite
+package com.francis.weatherap.presentation.favorite
 
 import android.os.Bundle
 import android.view.LayoutInflater

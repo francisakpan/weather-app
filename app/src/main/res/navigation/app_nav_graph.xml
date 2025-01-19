@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/weatherScreenFragment"
-        android:name="com.francis.weatherap.presentation.ui.home.WeatherScreenFragment"
+        android:name="com.francis.weatherap.presentation.home.WeatherScreenFragment"
         android:label="WeatherScreenFragment"
         tools:layout="@layout/fragment_weather_screen">
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/weatherDetailsFragment"
-        android:name="com.francis.weatherap.presentation.ui.details.WeatherDetailsFragment"
+        android:name="com.francis.weatherap.presentation.details.WeatherDetailsFragment"
         android:label="WeatherDetailsFragment"
         tools:layout="@layout/fragment_weather_details"/>
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.francis.weatherap.presentation.ui.favorite.FavoriteFragment"
+        android:name="com.francis.weatherap.presentation.favorite.FavoriteFragment"
         android:label="FavoriteFragment"
         tools:layout="@layout/fragment_favorite"/>
 </navigation>

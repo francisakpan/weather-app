@@ -1,4 +1,4 @@
-package com.francis.weatherap.presentation.ui.home
+package com.francis.weatherap.presentation.home
 
 import android.os.Bundle
 import android.util.Log
