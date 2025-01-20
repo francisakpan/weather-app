@@ -59,9 +59,6 @@ dependencies {
     implementation(libs.com.google.dagger.hilt.android)
     ksp(libs.com.google.dagger.hilt.android.compiler)
 
-    implementation(libs.androidx.hilt.work)
-    ksp(libs.androidx.hilt.compiler)
-
     implementation(libs.bundles.room)
     ksp(libs.androidx.room.room.compiler)
 

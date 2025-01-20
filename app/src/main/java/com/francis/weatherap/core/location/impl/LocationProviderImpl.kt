@@ -6,9 +6,7 @@ import com.francis.weatherap.core.location.def.LocationProvider
 import com.francis.weatherap.core.types.location.Coordinates
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
-import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.android.scopes.ActivityRetainedScoped
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.coroutines.resume

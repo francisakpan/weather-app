@@ -37,15 +37,12 @@ private const val HeaderContent = "Content-Type"
 interface CityRepositoryModule {
 
     @Binds
-    @ViewModelScoped
     fun bindCityRepository(impl: CityRepositoryImpl): CityRepository
 
     @Binds
-    @ViewModelScoped
     fun bindGetCitiesInteractor(impl: GetCitiesInteractorImpl): GetCitiesInteractor
 
     @Binds
-    @ViewModelScoped
     fun bindGetCitiesPagingInteractor(impl: GetCitiesPagingInteractorImpl): GetCitiesPagingInteractor
 
     companion object {
@@ -55,8 +52,8 @@ interface CityRepositoryModule {
         fun provideCityAuthorizationInterceptor(): Interceptor = Interceptor { chain ->
             val original: Request = chain.request()
             val request: Request = original.newBuilder()
-                .header(HeaderKey, "BuildConfig.RAPID_SERVICE_KEY")
-                .header(HeaderHost, "BuildConfig.RAPID_SERVICE_CITY_HOST")
+                .header(HeaderKey, "321fef3568msh4d5ba15f96ce1fcp1cf902jsne4afa5be691e")
+                .header(HeaderHost, "wft-geo-db.p.rapidapi.com")
                 .header(HeaderContent, MediaType)
                 .method(original.method, original.body)
                 .build()
@@ -71,7 +68,7 @@ interface CityRepositoryModule {
             okHttpClientBuilder: OkHttpClient.Builder,
             @CityAuthorizationInterceptor interceptor: Interceptor,
         ): Retrofit = Retrofit.Builder()
-            .baseUrl("BuildConfig.CITY_SERVICE_BASE_URL")
+            .baseUrl("https://wft-geo-db.p.rapidapi.com/")
             .addConverterFactory(converterFactory)
             .client(okHttpClientBuilder.addInterceptor(interceptor).build())
             .build()

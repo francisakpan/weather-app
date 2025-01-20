@@ -12,6 +12,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityRetainedComponent
+import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import dagger.hilt.android.scopes.ViewModelScoped
 import okhttp3.Interceptor
@@ -31,15 +32,12 @@ private const val HeaderContent = "Content-Type"
 interface WeatherRepositoryModule {
 
     @Binds
-    @ViewModelScoped
     fun bindWeatherRepository(impl: WeatherRepositoryImpl): WeatherRepository
 
     @Binds
-    @ViewModelScoped
     fun bindGetForecastInteractor(impl: GetForecastInteractorImpl): GetForecastInteractor
 
     @Binds
-    @ViewModelScoped
     fun bindGetTodayWeatherInteractor(impl: GetTodayWeatherInteractorImpl): GetTodayWeatherInteractor
 
 
@@ -50,8 +48,8 @@ interface WeatherRepositoryModule {
         fun provideWeatherAuthorizationInterceptor(): Interceptor = Interceptor { chain ->
             val original: Request = chain.request()
             val request: Request = original.newBuilder()
-                .header(HeaderKey, "BuildConfig.RAPID_SERVICE_KEY")
-                .header(HeaderHost, "BuildConfig.RAPID_SERVICE_WEATHER_HOST")
+                .header(HeaderKey, "321fef3568msh4d5ba15f96ce1fcp1cf902jsne4afa5be691e")
+                .header(HeaderHost, "openweather43.p.rapidapi.com")
                 .header(HeaderContent, MediaType)
                 .method(original.method, original.body)
                 .build()
@@ -66,7 +64,7 @@ interface WeatherRepositoryModule {
             okHttpClientBuilder: OkHttpClient.Builder,
             @WeatherAuthorizationInterceptor interceptor: Interceptor,
         ): Retrofit = Retrofit.Builder()
-            .baseUrl("BuildConfig.WEATHER_SERVICE_BASE_URL")
+            .baseUrl("https://openweather43.p.rapidapi.com/")
             .addConverterFactory(converterFactory)
             .client(okHttpClientBuilder.addInterceptor(interceptor).build())
             .build()
