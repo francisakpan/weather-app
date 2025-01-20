@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav_graph"
+    app:startDestination="@id/weatherScreenFragment">
+
+    <fragment
+        android:id="@+id/weatherScreenFragment"
+        android:name="com.francis.weatherap.presentation.home.WeatherScreenFragment"
+        android:label="WeatherScreenFragment"
+        tools:layout="@layout/fragment_weather_screen">
+        <action
+            android:id="@+id/action_weatherScreenFragment_to_weatherDetailsFragment"
+            app:destination="@id/weatherDetailsFragment" />
+        <action
+            android:id="@+id/action_weatherScreenFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherDetailsFragment"
+        android:name="com.francis.weatherap.presentation.details.WeatherDetailsFragment"
+        android:label="WeatherDetailsFragment"
+        tools:layout="@layout/fragment_weather_details"/>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.francis.weatherap.presentation.favorite.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/fragment_favorite"/>
+</navigation>
